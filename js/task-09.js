@@ -11,6 +11,6 @@ buttonEl.addEventListener("click", chageColorHandler);
 
 function chageColorHandler(evt) {
   const color = getRandomHexColor();
+  body.style.backgroundColor = color;
   colorField.textContent = color;
-  body[0].style.backgroundColor = color;
 }
