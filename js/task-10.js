@@ -5,15 +5,16 @@ divControls.addEventListener("click", buttonHandler);
 
 let isCreated = false;
 function buttonHandler({ target, currentTarget } = evt) {
-  if (target.dataset.hasOwnProperty("create") && isCreated) {
-    alert('You have created boxes, click "destroy" button');
-  }
-  if (target.dataset.hasOwnProperty("create") && !isCreated) {
-    divEl.insertAdjacentHTML(
-      "afterbegin",
-      createBoxes(Number(currentTarget.firstElementChild.value))
-    );
-    isCreated = true;
+  if (target.dataset.hasOwnProperty("create")) {
+    if (isCreated) {
+      alert('You have created boxes, click "destroy" button');
+    } else {
+      divEl.insertAdjacentHTML(
+        "afterbegin",
+        createBoxes(Number(currentTarget.firstElementChild.value))
+      );
+      isCreated = true;
+    }
   }
   if (target.dataset.hasOwnProperty("destroy") && isCreated) {
     destroyBoxes();
